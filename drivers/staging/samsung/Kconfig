@@ -1,0 +1,17 @@
+# drivers/staging/samsung/Kconfig
+#
+# Copyright (c) 2010-2011 Samsung Electronics Co., Ltd.
+#		http://www.samsung.com/
+#
+# Licensed under GPLv2
+
+comment "Samsung TN Features"
+config SEC_EXT
+	bool "Samsung TN extension Feature"
+
+config SEC_SYSFS
+	bool "Samsung sec sysfs Feature"
+	default y
+	depends on SEC_EXT
+	help
+	  Samsung sysfs name 'sec' directory create.
