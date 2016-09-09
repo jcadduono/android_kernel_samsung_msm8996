@@ -614,21 +614,29 @@ int main(int ac, char **av)
 				exit(1);
 			}
 		}
-     
-    name = getenv("KCONFIG_DMVERITY");
 
-        printf("KCONFIG_DMVERITY(%s)\n", name);
-        if (name) {
-            if (conf_read_simple(name, S_DEF_USER, false)) {
-                printf(_("***\n"
-                    "*** Can't find dmverity configuration \"%s\"!\n"
-                    "***\n"), name);
-                exit(1);
+		name = getenv("KCONFIG_DMVERITY");
+		printf("KCONFIG_DMVERITY(%s)\n", name);
+		if (name) {
+			if (conf_read_simple(name, S_DEF_USER, false)) {
+				printf(_("***\n"
+					"*** Can't find dmverity configuration \"%s\"!\n"
+					"***\n"), name);
+				exit(1);
+			}
+		}
 
-            } 
-        }
-    
-    
+		name = getenv("KCONFIG_DEVICE");
+		printf("KCONFIG_DEVICE(%s)\n", name);
+		if (name) {
+			if (conf_read_simple(name, S_DEF_USER, false)) {
+				printf(_("***\n"
+					"*** Can't find device configuration \"%s\"!\n"
+					"***\n"), name);
+				exit(1);
+			}
+		}
+
 		name = getenv("KCONFIG_VARIANT");
 		printf("KCONFIG_VARIANT(%s)\n", name);
 		if (name) {
